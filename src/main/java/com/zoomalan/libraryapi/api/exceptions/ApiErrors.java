@@ -4,11 +4,11 @@ import com.zoomalan.libraryapi.exceptions.BusinessException;
 import org.springframework.validation.BindingResult;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ApiErrors {
-    private List<String> errors;
+    private final List<String> errors;
 
     public ApiErrors(BindingResult bindingResult) {
         this.errors = new ArrayList<>();
@@ -16,7 +16,7 @@ public class ApiErrors {
     }
 
     public ApiErrors(BusinessException e) {
-        this.errors = Arrays.asList(e.getMessage());
+        this.errors = Collections.singletonList(e.getMessage());
     }
 
     public List<String> getErrors() {
