@@ -2,6 +2,7 @@ package com.zoomalan.libraryapi.api.exceptions;
 
 import com.zoomalan.libraryapi.exceptions.BusinessException;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,6 +18,10 @@ public class ApiErrors {
 
     public ApiErrors(BusinessException e) {
         this.errors = Collections.singletonList(e.getMessage());
+    }
+
+    public ApiErrors(ResponseStatusException e) {
+        this.errors = Collections.singletonList(e.getReason());
     }
 
     public List<String> getErrors() {
