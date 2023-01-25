@@ -5,6 +5,7 @@ import com.zoomalan.libraryapi.api.dto.BookDTO;
 import com.zoomalan.libraryapi.exceptions.BusinessException;
 import com.zoomalan.libraryapi.model.entity.Book;
 import com.zoomalan.libraryapi.service.BookService;
+import com.zoomalan.libraryapi.service.LoanService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -45,6 +46,9 @@ public class BookControllerTest {
 
     @MockBean
     BookService service;
+
+    @MockBean
+    LoanService loanService;
 
     @Test
     @DisplayName("Should create a book")
